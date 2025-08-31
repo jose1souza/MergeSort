@@ -24,7 +24,7 @@ public class BubbleSort<T> extends ObservableSort {
 				} // fim do if
 			} // fim do for de comparacoes
 		} // fim do for da fase
-		notificationEnd();
+		//notificationEnd();
 		return array;
 	} // fim do metódo sort
 

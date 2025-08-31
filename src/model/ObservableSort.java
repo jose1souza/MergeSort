@@ -19,14 +19,14 @@ public abstract class ObservableSort<T> {
 	
 	protected void notificationComparison(int index1, int index2) {
 		this.accountantComparison++;
-		if(observer != null)
-			observer.inComparacion(index1, index2);
+		//if(observer != null)
+			//observer.inComparacion(index1, index2);
 	}
 	
 	protected void notificationExchanges(int index1, int index2) {
 		this.counterExchanges++;
-		if(observer != null)
-			observer.inExchanges(index1, index2);
+		//if(observer != null)
+			//observer.inExchanges(index1, index2);
 	}
 	
 	protected void notificationEnd() {

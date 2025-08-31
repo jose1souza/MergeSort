@@ -2,12 +2,13 @@ package model;
 
 import java.util.*;
 
-public class MergeSort {
-	public static void mergeSort(Integer[] inputArray) {
+public class MergeSort extends ObservableSort{
+	
+	public Integer[] mergeSort(Integer[] inputArray) {
 		int inputLength = inputArray.length;
-
+		
 		if (inputLength < 2) {
-			return;
+			return inputArray;
 		}
 
 		int midIndex = inputLength / 2;
@@ -25,9 +26,11 @@ public class MergeSort {
 		mergeSort(rightHalf);
 
 		merge(inputArray, leftHalf, rightHalf);
+		
+		return inputArray;
 	}
 
-	private static void merge(Integer[] inputArray, Integer[] leftHalf, Integer[] rightHalf) {
+	private void merge(Integer[] inputArray, Integer[] leftHalf, Integer[] rightHalf) {
 		int leftSize = leftHalf.length;
 		int rightSize = rightHalf.length;
 
@@ -35,10 +38,17 @@ public class MergeSort {
 
 		while (i < leftSize && j < rightSize) {
 			if (leftHalf[i] <= rightHalf[j]) {
+				
 				inputArray[k] = leftHalf[i];
+				
+				notificationComparison(i, j);
+				notificationExchanges(k,i);
+				
 				i++;
 			} else {
 				inputArray[k] = rightHalf[j];
+				
+				notificationExchanges(k,j);
 				j++;
 			}
 			k++;
@@ -57,10 +67,9 @@ public class MergeSort {
 		}
 
 	}
-
-	private static void printArray(Integer[] numbers) {
-		for (int i = 0; i < numbers.length; i++) {
-			System.out.println(numbers[i]);
-		}
+	
+	public Integer[] sort(Integer[] array) { 
+		return mergeSort(array);
 	}
+
 }

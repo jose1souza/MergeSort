@@ -27,7 +27,7 @@ public class SelectionSort<T> extends ObservableSort{
 			int smallIndex = indexOfSmallestValueVector(array,i,comparator);
 				exchange(array,i,smallIndex);
 		}
-		notificationEnd();
+		//notificationEnd();
 		return array;
 	}
 	
