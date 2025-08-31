@@ -1,10 +1,10 @@
-# 🚀 Sorting Algorithm Performance Comparison
+#  Sorting Algorithm Performance Comparison
 
 This project implements and compares the performance of four classic sorting algorithms in Java: **Bubble Sort**, **Selection Sort**, **Insertion Sort**, and **Merge Sort**. Each algorithm is applied to the same dataset to evaluate execution time, number of comparisons, and sorting correctness.
 
 ---
 
-## 📦 Features
+##  Features
 
 - Full implementations of:
   - Bubble Sort (with verbose and flag optimizations)
@@ -17,7 +17,7 @@ This project implements and compares the performance of four classic sorting alg
 
 ---
 
-## 📊 Performance Results
+##  Performance Results
 
 | Algorithm         | Comparisons       | Time (s)  | Efficiency |
 |-------------------|-------------------|-----------|------------|
@@ -26,11 +26,11 @@ This project implements and compares the performance of four classic sorting alg
 | **Insertion Sort**| 611,134,160       | 16.826    | ❌ Inefficient with unsorted data |
 | **Bubble Sort**   | 1,236,014,340     | 19.589    | 🚫 Extremely inefficient |
 
-> 💡 *Note:* All tests were run on the same dataset to ensure consistent comparisons.
+>  *Note:* All tests were run on the same dataset to ensure consistent comparisons.
 
 ---
 
-## 📚 Algorithm Complexity
+##  Algorithm Complexity
 
 | Algorithm        | Time Complexity | Stability | Description |
 |------------------|------------------|-----------|-------------|
@@ -41,11 +41,11 @@ This project implements and compares the performance of four classic sorting alg
 
 ---
 
-## 🛠️ How to Clone and Run
+##  How to Clone and Run
 
 Since `.class` and `.project` files are ignored via `.gitignore`, manual compilation is required.
 
-### 🔧 Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/jose1souza/MergeSort.git
