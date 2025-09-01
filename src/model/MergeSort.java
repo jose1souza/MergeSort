@@ -2,9 +2,9 @@ package model;
 
 import java.util.*;
 
-public class MergeSort extends ObservableSort{
+public class MergeSort<T> extends ObservableSort{
 	
-	public Integer[] mergeSort(Integer[] inputArray) {
+	public T[] mergeSort(T[] inputArray, Comparator<T> comparator) {
 		int inputLength = inputArray.length;
 		
 		if (inputLength < 2) {
@@ -12,8 +12,8 @@ public class MergeSort extends ObservableSort{
 		}
 
 		int midIndex = inputLength / 2;
-		Integer[] leftHalf = new Integer[midIndex];
-		Integer[] rightHalf = new Integer[inputLength - midIndex];
+		T[] leftHalf = (T[]) new Object[midIndex];
+		T[] rightHalf = (T[]) new Object[inputLength - midIndex];
 
 		for (int i = 0; i < midIndex; i++) {
 			leftHalf[i] = inputArray[i];
@@ -22,33 +22,28 @@ public class MergeSort extends ObservableSort{
 			rightHalf[i - midIndex] = inputArray[i];
 		}
 
-		mergeSort(leftHalf);
-		mergeSort(rightHalf);
+		mergeSort(leftHalf,comparator);
+		mergeSort(rightHalf,comparator);
 
-		merge(inputArray, leftHalf, rightHalf);
+		merge(inputArray, leftHalf, rightHalf,comparator);
 		
 		return inputArray;
 	}
 
-	private void merge(Integer[] inputArray, Integer[] leftHalf, Integer[] rightHalf) {
+	private void merge(T[] inputArray, T[] leftHalf, T[] rightHalf,Comparator<T> comparator) {
 		int leftSize = leftHalf.length;
 		int rightSize = rightHalf.length;
 
 		int i = 0, j = 0, k = 0;
 
 		while (i < leftSize && j < rightSize) {
-			if (leftHalf[i] <= rightHalf[j]) {
-				
+			notificationComparison(i, j);
+			
+			if (comparator.compare(leftHalf[i], rightHalf[j]) >= 0) {
 				inputArray[k] = leftHalf[i];
-				
-				notificationComparison(i, j);
-				notificationExchanges(k,i);
-				
 				i++;
 			} else {
 				inputArray[k] = rightHalf[j];
-				
-				notificationExchanges(k,j);
 				j++;
 			}
 			k++;
@@ -68,8 +63,8 @@ public class MergeSort extends ObservableSort{
 
 	}
 	
-	public Integer[] sort(Integer[] array) { 
-		return mergeSort(array);
+	public T[] sort(T[] array) { 
+		return mergeSort(array, (a, b) -> ((Comparable<T>) a).compareTo(b));
 	}
 
 }

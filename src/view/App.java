@@ -28,7 +28,7 @@ public class App {
 		Integer[] arquivoCarregado3 = carregarArquivo("numeros_aleatorios3.txt");
 		Integer[] arquivoCarregado4 = carregarArquivo("numeros_aleatorios4.txt");
 
-		MergeSort merge = new MergeSort();
+		MergeSort<Integer> merge = new MergeSort<>();
 		SortObserver observerMerge = new SortObserver();
 		merge.setObserver(observerMerge);
 
